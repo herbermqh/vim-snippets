@@ -262,14 +262,6 @@ snippet tikzcd* tikzcd environment in equation*
 	\\end{equation*}
 	${0}
 #math
-snippet stackrel \stackrel{}{}
-	\\stackrel{${1:above}}{${2:below}} ${0}
-snippet frac \frac{}{}
-	\\frac{${1:num}}{${2:denom}} ${0}
-snippet sum \sum^{}_{}
-	\\sum^{${1:n}}_{${2:i=1}} ${0}
-snippet lim \lim_{}
-	\\lim_{${1:n \\to \\infty}} ${0}
 snippet frame frame environment
 	\\begin{frame}[${1:t}]
 		\frametitle{${2:title}}
@@ -642,4 +634,89 @@ snippet tikz "Entorno tikz" Entorno tikz
 			${0}
 		\\end{tikzpicture}
 	\\end{center}
+
+#logica y conjuntos
+snippet oo "O logica" O logica
+	\\lor
+
+snippet yy "Y logica" Y logica
+	\\wedge 
+
+snippet ee "Entonces logica" Entonces logica
+	\\Rightarrow
+
+snippet sss "Si y solo si logica" Si y solo si logica
+	\\Leftrightarrow
+
+snippet nn "Negacion logica" Negacion logica
+	\\sim 
+
+snippet od "Logica" Logica
+	\\veebar
+
+snippet UU "Union conjuntos" Union conjuntos
+	\\cup
+
+snippet II "Intereseccion conjuntos" Interseccion conjuntos
+	\\cap
+
+#sumatoria
+snippet suml "Sumatoria con limites" Sumatoria con limites
+	\\sum\\limits_{${1:i}=${2:1}}^{${3:n}}${0}
+
+snippet sum "Sumatoria sin limites" Sumatoria sin limites
+	\\sum ${0}
+
+#productoria
+snippet prodl "Productoria con limites" Productoria con limites
+	\\prod\\limits_{${1:i}=${2:1}}^{${3:n}}${0}
+
+snippet prod "Productoria sin limites" Productoria sin limites
+	\\prod ${0}
+
+#calculo de una variable
+snippet lim "limites" limites
+	 \\lim\limits_{${1:x}\\to ${2:0}}${0}
+
+snippet dey1 "Derivada de u" Derivada de u
+	\\frac{d${1:y}}{d${2:x}}${0}
+
+snippet def1 "Derivada de funcion" Derivada de funcion
+	\\frac{d}{d${1:x}}\\left[ ${2} \\right]${0}
+
+snippet deny "Derivada n-esima de u" Derivada n-esima de u
+	\\frac{d^{${3:n}}${1:y}}{d${2:x}^{${3:n}}}${0}
+
+snippet denf "Derivada n-esima de una funcion" Derivada n-esima de una funcion
+	\\frac{d^{${2:n}}}{d${1:x}^{${2:n}}}\\left[${3}\right]${0}
+
+snippet ini "Integral indefinida" Integral indefinida
+	\\int ${2:f(${1:x})}\\;d${1:x} ${0}
+
+snippet ind "Integral definida" Integral definida
+	\\int\\limits_{${1:num}}^{${2:num}}${4:f(${3:x})}\\;d${3:x} ${0}
+
+#vectores
+snippet vv "Vector" Vector
+	\\vec{${1}}${0}
+
+snippet vu "Vector unitario" Vector unitario
+	\\hat{${1}}${0}
+
+#varios
+snippet mb "mbox" \mbox
+	\\mbox{${1}}${0}
+
+snippet ec "Ecuacion" Ecuacion
+	\\tag{${1}${0}}
+
+snippet uu "Unidades" Unidades
+	\\unit{${1}}${0}
+
+
+
+
+
+
+
 
