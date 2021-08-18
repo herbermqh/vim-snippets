@@ -440,6 +440,7 @@ snippet fig "Figura tikz escalado" Figura tikz escalado
 		\\end{scaletikzpicturetowidth}
 	\\end{center}
 snippet figm "Figura tikz en el margen" Figura tikz en el margen
+	figura \ref{fig:${1}}
 	\\marginote{
 		\\begin{figure}[H]
 			\\centering
@@ -447,7 +448,7 @@ snippet figm "Figura tikz en el margen" Figura tikz en el margen
 				\draw (-2,-2) rectangle (2,2);
 			\\end{tikzpicture}
 			\\caption{}
-			\\label{fig:${1}
+			\\label{fig:$1}
 		\\end{figure}
 	}
 	${0}
