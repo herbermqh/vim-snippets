@@ -476,7 +476,7 @@ snippet gIn "Gráfica inecuaciones" Gráfica inecuaciones
 snippet img "Imagen sin referencia" 
 	\\hImage{${0}}
 snippet imgm "Imagen en el margen" Imagen en el margen
-	figura \\hImageM{${1:nombre}} \\refig{${1:nombre}}
+	figura \\hImageM{${1}} \\refig{$1} ${0}
 snippet longtable "Longtable"
 	\\begin{table}[H]
 		\\centering
@@ -494,7 +494,7 @@ snippet mul3 "En tres columna" En tres columna
 		${0}
 	\\end{multicols}
 snippet nimgm "N images en el margen" N images en el margen
-	\marginote{
+	\\marginote{
 		\\begin{figure}[H]
 			\\centering
 			\\subfigure[${4}]{
