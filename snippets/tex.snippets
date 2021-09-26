@@ -291,10 +291,9 @@
 #			${0}
 #		\\end{column}
 #	\\end{columns}
-#snippet mul2 two-column environment with multicol
-#	\\begin{multicols}{2}
-#		${0}
-#	\\end{multicols}
+
+
+
 #snippet \{ \{ \}
 #	\\{ ${0} \\}
 ##delimiter
@@ -389,278 +388,97 @@
 ## Valor absoluto
 #snippet abs "Valor absoluto" \left| right|
 #	\\left| ${0} \\right|
-#snippet chemin "Nomenclatura inorgánica" 
-#	\\chemin[${1}]{
-#		\\ntra{${2}}\\\
-#		\\nsto{${3}}\\\
-#		\\niup{${0}}
-#	}
-#snippet cjt "Conjunto de ecuaciones"
-#	\\left[
-#	\\begin{aligned}
-#		${0}
-#	\\end{aligned}
-#	\\right.
-#snippet def "Definición" Definición
-#	\\begin{definicion}[${1}]
-#		${0}
-#	\\end{definicion}
-#snippet dem "Demostración" Demostración
-#	\\begin{demostracion}
-#		${0}
-#	\\end{demostracion}
-#snippet ej "Ejemplo en una sola columna" Ejemplo en una sola columna
-#	\\begin{ej}
-#		\\begin{pre}
-#			${1}
-#		\\end{pre}
-#		\\begin{sol}
-#			${0}
-#		\\end{sol}
-#	\\end{ej}
-#snippet ej2 "Ejemplo en dos columna" Ejemplo en dos columna
-#	\\begin{ej}
-#		\\begin{multicols}{2}
-#			\\begin{pre}
-#				${1}
-#			\\end{pre}
-#			\\begin{sol}
-#				${0}
-#			\\end{sol}
-#		\\end{multicols}
-#	\\end{ej}
-#snippet ell "Ejemplo ilustrativo" Ejemplo ilustrativo
-#	\\begin{ExampleIllustrative}
-#		${0}
-#	\\end{ExampleIllustrative}
-#snippet fig "Figura tikz escalado" Figura tikz escalado
-#	\\begin{center}
-#		\\begin{scaletikzpicturetowidth}{7cm}
-#			\\begin{tikzpicture}[scale=\\tikzscale]
-#				${0}
-#			\\end{tikzpicture}
-#		\\end{scaletikzpicturetowidth}
-#	\\end{center}
-#snippet figm "Figura tikz en el margen" Figura tikz en el margen
-#	figura \ref{fig:${1}}
-#	\\marginote{
-#		\\begin{figure}[H]
-#			\\centering
-#			\\begin{tikzpicture}
-#				\draw (-2,-2) rectangle (2,2);
-#			\\end{tikzpicture}
-#			\\caption{}
-#			\\label{fig:$1}
-#		\\end{figure}
-#	}
-#	${0}
-#snippet form "Fórmula" Fórmula
-#	\\begin{empheq}[box=\formeq]{align}
-#		${0}
-#	\\end{empheq}
-#snippet gIn "Gráfica inecuaciones" Gráfica inecuaciones
-#	\\begin{center}
-#		\\begin{scaletikzpicturetowidth}{7cm}
-#			\\begin{tikzpicture}[scale=\\tikzscale]
-#				\\def\\numerosCriticos{${0:puntos critico}}
-#				\\def\\simbolo{/} %punto critico/simbolo
-#				\\def\\cerradoAbierto{/} %punto critico/cerrado o abierto
-#				\\def\\inicial{-} %+ o -
-#				\\def\\final{+} %+ o -
-#				\\graficaIntervalos
-#				\\scoped[on background layer]{
-#					\\draw[latex-latex, \\lineaColor, line width=\\lineaGrosor]
-#					(\\inicialX,\\yy) -| (,\\yy) -- (\\finalX,\\yy);
-#				}
-#			\\end{tikzpicture}
-#		\\end{scaletikzpicturetowidth}
-#	\\end{center}
-#snippet img "Imagen sin referencia" 
-#	\\hImage{${0}}
-#snippet imgm "Imagen en el margen" Imagen en el margen
-#	figura \\hImageM{${1}} \\refig{$1} ${0}
-#snippet longtable "Longtable"
-#	\\begin{table}[H]
-#		\\centering
-#		\\begin{longtable}[C]{${1}}
-#			\\toprule
-#				${2}
-#			\\midrule
-#				${3}
-#			\\bottomrule
-#		\\end{longtable}
-#		\\caption{${4}}
-#	\\end{table}
-#snippet mul3 "En tres columna" En tres columna
-#	\\begin{multicols}{3}
-#		${0}
-#	\\end{multicols}
-#snippet nimgm "N images en el margen" N images en el margen
-#	\\marginote{
-#		\\begin{figure}[H]
-#			\\centering
-#			\\subfigure[${4}]{
-#				\\pgfimage[width=\marginparwidth]{\rootimage/${1}${2}}
-#				\\label{fig:${1}${2}}
-#			}
-#			\\subfigure[${5}]{
-#				\\pgfimage[width=\marginparwidth]{\rootimage/${1}${3}}
-#				\\label{fig:${1}${3}}
-#			}
-#			\\caption{}
-#			\\label{fig:${1}}
-#		\\end{figure}
-#	}
-#snippet nit "Lista con nombre" Lista con nombre
-#	\\begin{NameItem}[${1:nombre}]
-#		\\item ${0}
-#	\\end{NameItem}
-#snippet nrfig "N figuras tikz con referencia" N figuras con referencia
-#	\\begin{figure}[H]
-#		\\centering
-#		\\subfigure[${2}]{
-#			\\begin{tikzpicture}
-#				\draw (-2,-2) rectangle (2,2);
-#			\\end{tikzpicture}
-#		}
-#		\\subfigure[${4}]{
-#			\\begin{tikzpicture}
-#				\draw (-2,-2) rectangle (2,2);
-#			\\end{tikzpicture}
-#		}
-#		\\caption{}
-#		\\label{fig:${1}}
-#	\\end{figure}
-#snippet nrfigm "N figuras tikz con referencia en el margen" N figuras tikz con referencia en el margen
-#	figura \\refig{${1:nombre}}
-#	\\marginote{
-#		\\begin{figure}[H]
-#			\\centering
-#			\\subfigure[${2}]{
-#				\\begin{tikzpicture}
-#					\draw (-2,-2) rectangle (2,2);
-#				\\end{tikzpicture}
-#			}
-#			\\subfigure[${4}]{
-#				\\begin{tikzpicture}
-#					\draw (-2,-2) rectangle (2,2);
-#				\\end{tikzpicture}
-#			}
-#			\\caption{}
-#			\\label{fig:${1}}
-#		\\end{figure}
-#	}
-#	${0}
-#snippet parboxImage "Parbox image" Parbox image
-#	\\parbox{\\widthparbox}{\\pgfimage[width=\\widthparbox]{\\rootimage/${0}}}
-#snippet parboxText "Parbox text" Parbox text
-#	\\parbox{\\widthparbox}{
-#		${0}
-#	}
-#snippet pr "Def problema" Def problema
-#	\\newproblem{${0}}{}{}
-#snippet qt "Preguntas"
-#	\\begin{question}
-#		\\item ${0}
-#	\\end{question}
-#snippet resp "Respuesta"
-#	\\begin{empheq}[box=\\respuesta]{align*}
-#		${0}
-#	\\end{empheq}
-#snippet rfig "Figura tikz con referencia" Figura tikz con referencia
-#	\\begin{figure}[H]
-#		\\centering
-#		\\begin{tikzpicture}
-#			\draw (-2,-2) rectangle (2,2);
-#		\\end{tikzpicture}
-#		\\caption{}
-#		\\label{fig:${1}}
-#	\\end{figure}
-#	${0}
-#snippet stm "Sistema de ecuaciones" Sistema de ecuaciones
-#	\\left\\{
-#		\\begin{aligned}
-#			${0}
-#		\\end{aligned}
-#	\\right.
-#snippet tabox "Tabla en caja" Tabla en caja
-#	\\begin{empheq}[box=\tabox{${1:título}}]{align*}
-#		${0}
-#	\\end{empheq}
-#snippet htabular "htabular" 
-#	\\begin{table}[H]
-#		\\centering
-#		\\begin{htabular}{${0}}
-#			\\tw{}  &\\tw{}					\\\ \\midrule
-#							&               \\\ \\midrule
-#							&
-#		\\end{htabular}
-#		\\caption{}
-#	\\end{table}
-#snippet teo "Teorema" 
-#	\\begin{theorem}
-#		${0}
-#	\\end{theorem}
-#snippet tikz "Entorno tikz" Entorno tikz
-#	\\begin{center}
-#		\\begin{tikzpicture}
-#			${0}
-#		\\end{tikzpicture}
-#	\\end{center}
-##logica y conjuntos
-#snippet oo "O logica" O logica
-#	\\lor
-#snippet yy "Y logica" Y logica
-#	\\wedge 
-#snippet ee "Entonces logica" Entonces logica
-#	\\Rightarrow
-#snippet sss "Si y solo si logica" Si y solo si logica
-#	\\Leftrightarrow
-#snippet nn "Negacion logica" Negacion logica
-#	\\sim 
-#snippet od "Logica" Logica
-#	\\veebar
-#snippet UU "Union conjuntos" Union conjuntos
-#	\\cup
-#snippet II "Intereseccion conjuntos" Interseccion conjuntos
-#	\\cap
-##sumatoria
-#snippet suml "Sumatoria con limites" Sumatoria con limites
-#	\\sum\\limits_{${1:i}=${2:1}}^{${3:n}}${0}
-#snippet sum "Sumatoria sin limites" Sumatoria sin limites
-#	\\sum ${0}
-##productoria
-#snippet prodl "Productoria con limites" Productoria con limites
-#	\\prod\\limits_{${1:i}=${2:1}}^{${3:n}}${0}
-#snippet prod "Productoria sin limites" Productoria sin limites
-#	\\prod ${0}
-##calculo de una variable
-#snippet lim "limites" limites
-#	 \\lim\limits_{${1:x}\\to ${2:0}}${0}
-#snippet dey1 "Derivada de u" Derivada de u
-#	\\frac{d${1:y}}{d${2:x}}${0}
-#snippet def1 "Derivada de funcion" Derivada de funcion
-#	\\frac{d}{d${1:x}}\\left[ ${2} \\right]${0}
-#snippet deny "Derivada n-esima de u" Derivada n-esima de u
-#	\\frac{d^{${3:n}}${1:y}}{d${2:x}^{${3:n}}}${0}
-#snippet denf "Derivada n-esima de una funcion" Derivada n-esima de una funcion
-#	\\frac{d^{${2:n}}}{d${1:x}^{${2:n}}}\\left[${3}\right]${0}
-#snippet ini "Integral indefinida" Integral indefinida
-#	\\int ${2:f(${1:x})}\\;d${1:x} ${0}
-#snippet ind "Integral definida" Integral definida
-#	\\int\\limits_{${1:num}}^{${2:num}}${4:f(${3:x})}\\;d${3:x} ${0}
-##vectores
-#snippet vv "Vector" Vector
-#	\\vec{${1}}${0}
-#snippet vu "Vector unitario" Vector unitario
-#	\\hat{${1}}${0}
-##varios
-#snippet mb "mbox" \mbox
-#	\\mbox{${1}}${0}
-#snippet ec "Ecuacion" Ecuacion
-#	\\tag{${1}${0}}
-#snippet uu "Unidades" Unidades
-#	\\unit{${1}}${0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#logica y conjuntos
+snippet oo "O logica" O logica
+	\lor
+snippet yy "Y logica" Y logica
+	\wedge 
+snippet ee "Entonces logica" Entonces logica
+	\Rightarrow
+snippet sss "Si y solo si logica" Si y solo si logica
+	\Leftrightarrow
+snippet nn "Negacion logica" Negacion logica
+	\sim 
+snippet od "Logica" Logica
+	\veebar
+snippet UU "Union conjuntos" Union conjuntos
+	\cup
+snippet II "Intereseccion conjuntos" Interseccion conjuntos
+	\cap
+
+
+#sumatoria
+snippet suml "Sumatoria con limites" Sumatoria con limites
+	\sum\limits_{${1:i}=${2:1}}^{${3:n}}${0}
+snippet sum "Sumatoria sin limites" Sumatoria sin limites
+	\sum ${0}
+#productoria
+snippet prodl "Productoria con limites" Productoria con limites
+	\prod\limits_{${1:i}=${2:1}}^{${3:n}}${0}
+snippet prod "Productoria sin limites" Productoria sin limites
+	\prod ${0}
+#calculo de una variable
+snippet lim "limites" limites
+	 \lim\limits_{${1:x}\to ${2:0}}${0}
+snippet dey1 "Derivada de u" Derivada de u
+	\frac{d${1:y}}{d${2:x}}${0}
+snippet def1 "Derivada de funcion" Derivada de funcion
+	\frac{d}{d${1:x}}\left[ ${2} \right]${0}
+snippet deny "Derivada n-esima de u" Derivada n-esima de u
+	\frac{d^{${3:n}}${1:y}}{d${2:x}^{${3:n}}}${0}
+snippet denf "Derivada n-esima de una funcion" Derivada n-esima de una funcion
+	\frac{d^{${2:n}}}{d${1:x}^{${2:n}}}\left[${3}\right]${0}
+snippet ini "Integral indefinida" Integral indefinida
+	\int ${2:f(${1:x})}\;d${1:x} ${0}
+snippet ind "Integral definida" Integral definida
+	\int\limits_{${1:num}}^{${2:num}}${4:f(${3:x})}\;d${3:x} ${0}
+
+#vectores
+snippet vv "Vector" Vector
+	\vec{${1}}${0}
+snippet vu "Vector unitario" Vector unitario
+	\hat{${1}}${0}
+
+#varios
+snippet mb "mbox" \mbox
+	\mbox{${1}}${0}
+
+snippet ec "Ecuacion" Ecuacion
+	\tag{${1}${0}}
+	
+snippet uu "Unidades" Unidades
+	\unit{${1}}${0}
 
 
 

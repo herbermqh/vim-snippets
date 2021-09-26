@@ -5,19 +5,14 @@ extends texmath
 global !p
 
 def math():
-    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 
 def comment(): 
-    return vim.eval('vimtex#syntax#in_comment()') == '1'
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
 
-# def env(name):
-# 		[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
-#     return x != '0' and x != '0'
-
-# def env(enumerate):
-# 		[x,y] = vim.eval("vimtex#env#is_inside('" + enumerate + "')") 
-#     return x != '0' and x != '0'
-
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
 
 def create_table(snip):
 	rows = snip.buffer[snip.line].split('x')[0]
@@ -94,10 +89,30 @@ endsnippet
 #cajas
 
 #multicol
+snippet mul2 "two-column environment with multicol" b
+\begin{multicols}{2}
+	${0}
+\end{multicols}
+endsnippet
+
+snippet mul3 "En tres columna" b
+\begin{multicols}{3}
+	${0}
+\end{multicols}
+endsnippet
 
 #minipage
 
 #parbox
+snippet parboxImage "Parbox image" b
+	\parbox{\widthparbox}{\pgfimage[width=\widthparbox]{\rootimage/${0}}}
+endsnippet
+
+snippet parboxText "Parbox text" b
+	\parbox{\widthparbox}{
+		${0}
+	}
+endsnippet
 
 #lineas 
 
@@ -137,10 +152,27 @@ snippet item "Itemize" b
 \end{itemize}
 endsnippet
 
-# context "enumerate()"
-snippet it "item" b
-\item
+context "env('enumerate')"
+snippet it "item" iA
+\item $0
 endsnippet
+
+context "env('question')"
+snippet it "item" iA
+\item $0
+endsnippet
+
+context "env('itemize')"
+snippet it "item" iA
+\item $0
+endsnippet
+
+context "env('description')"
+snippet it "item" iA
+\item[$1] $0
+endsnippet
+
+
 
 #description
 snippet desc "Description" b
@@ -149,7 +181,18 @@ snippet desc "Description" b
 \end{description}
 endsnippet
 
-#otra entornos de enumeracion
+#otra entornos de enumeracion o listas
+snippet nit "Lista con nombre" b
+\begin{NameItem}[${1:nombre}]
+	\item ${0}
+\end{NameItem}
+endsnippet
+
+snippet qt "Preguntas" b
+	\begin{question}
+		\item ${0}
+	\end{question}
+endsnippet
 
 #titulo
 
@@ -162,13 +205,62 @@ endsnippet
 #referencia bibliografica
 
 #definiciones
-
+snippet def "Definición" b
+\begin{definicion}[$1]
+	$0
+\end{definicion}
+endsnippet
+  
 #teoremas demostraciones
+snippet dem "Demostracion" b
+\begin{demostracion}
+	$0
+\end{demostracion}
+endsnippet
+ 
+snippet teo "Teorema" 
+\begin{theorem}
+	${0}
+\end{theorem}
+endsnippet
+
+#otros entornos
+snippet ej "Ejemplo en una sola columna" b
+\begin{ej}
+		\begin{pre}
+			$1
+		\end{pre}
+		\begin{sol}
+			$0
+		\end{sol}
+	\end{ej}
+endsnippet
+
+snippet ej2 "Ejemplo en dos columna" b
+	\begin{ej}
+		\begin{multicols}{2}
+			\begin{pre}
+				${1}
+			\end{pre}
+			\begin{sol}
+				${0}
+			\end{sol}
+		\end{multicols}
+	\end{ej}
+endsnippet
+
+snippet ell "Ejemplo ilustrativo" b
+	\begin{ExampleIllustrative}
+		$0
+	\end{ExampleIllustrative}
+endsnippet
 
 #indice alfabetico
 
 #modulacion
-
+snippet pr "Def problema" b
+	\newproblem{${0}}{}{}
+endsnippet
 
 ##############################
 #  TEXTO EN MODO MATEMATICO  #
@@ -495,7 +587,44 @@ snippet ali "Align" bA
 \end{align*}
 endsnippet
 
+#aligned conjunto de ecuaciones
+context "math()"
+snippet cjt "Conjunto de ecuaciones" b
+\left[
+\begin{aligned}
+	${0}
+\end{aligned}
+\right.
+endsnippet
+
+snippet stm "Sistema de ecuaciones" b
+\left\{
+\begin{aligned}
+	${0}
+\end{aligned}
+\right.
+endsnippet
+
 #multline
+
+#otros entornos matematicos
+snippet form "Fórmula" b
+\begin{empheq}[box=\formeq]{align}
+	$0
+\end{empheq}
+endsnippet
+
+snippet resp "Respuesta" b
+\begin{empheq}[box=\respuesta]{align*}
+	${0}
+\end{empheq}
+endsnippet
+
+snippet tabox "Tabla en caja" b
+\begin{empheq}[box=\tabox{${1:título}}]{align*}
+	${0}
+\end{empheq}
+endsnippet
 
 #letra griegas
 
@@ -575,7 +704,6 @@ context "math()"
 snippet iff "LeftRightarrow" Ai
 \iff
 endsnippet
-
 
 
 #negacion de relaciones
@@ -683,8 +811,156 @@ endsnippet
 # endsnippet
 
 #longtable
+snippet longtable "Longtable" b
+\begin{table}[H]
+	\centering
+	\begin{longtable}[C]{${1}}
+		\toprule
+			${2}
+		\midrule
+			${3}
+		\bottomrule
+	\end{longtable}
+	\caption{${4}}
+\end{table}
+endsnippet
+
+snippet htabular "htabular" 
+\begin{table}[H]
+	\centering
+	\begin{htabular}{${0}}
+		\tw{}  &\tw{}					\\ \midrule
+						&               \\ \midrule
+						&
+	\end{htabular}
+	\caption{}
+\end{table}
+endsnippet
 
 #figure
+snippet fig "Figura tikz escalado" b
+\begin{center}
+	\begin{scaletikzpicturetowidth}{7cm}
+		\begin{tikzpicture}[scale=\tikzscale]
+			$0
+		\end{tikzpicture}
+	\end{scaletikzpicturetowidth}
+\end{center}
+endsnippet
+
+snippet figm "Figura tikz en el margen" b
+figura \ref{fig:$1}
+\marginote{
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\draw (-2,-2) rectangle (2,2);
+		\end{tikzpicture}
+		\caption{}
+		\label{fig:$1}
+	\end{figure}
+}
+$0
+endsnippet
+
+snippet nrfig "N figuras tikz con referencia" N figuras con referencia
+\begin{figure}[H]
+	\centering
+	\subfigure[${2}]{
+		\begin{tikzpicture}
+			\draw (-2,-2) rectangle (2,2);
+		\end{tikzpicture}
+	}
+	\subfigure[${4}]{
+		\begin{tikzpicture}
+			\draw (-2,-2) rectangle (2,2);
+		\end{tikzpicture}
+	}
+	\caption{}
+	\label{fig:${1}}
+\end{figure}
+endsnippet
+
+snippet nrfigm "N figuras tikz con referencia en el margen" N figuras tikz con referencia en el margen
+figura \refig{${1:nombre}}
+\marginote{
+	\begin{figure}[H]
+		\centering
+		\subfigure[${2}]{
+			\begin{tikzpicture}
+				\draw (-2,-2) rectangle (2,2);
+			\end{tikzpicture}
+		}
+		\subfigure[${4}]{
+			\begin{tikzpicture}
+				\draw (-2,-2) rectangle (2,2);
+			\end{tikzpicture}
+		}
+		\caption{}
+		\label{fig:${1}}
+	\end{figure}
+}
+${0}
+endsnippet
+
+snippet gIn "Gráfica inecuaciones" b
+\begin{center} 
+	\begin{scaletikzpicturetowidth}{7cm}
+		\begin{tikzpicture}[scale=\\tikzscale]
+			\def\numerosCriticos{${0:puntos critico}}
+			\def\simbolo{/} %punto critico/simbolo
+			\def\cerradoAbierto{/} %punto critico/cerrado o abierto
+			\def\inicial{-} %+ o -
+			\def\final{+} %+ o -
+			\graficaIntervalos
+			\scoped[on background layer]{
+				\draw[latex-latex, \lineaColor, line width=\lineaGrosor]
+				(\inicialX,\yy) -| (,\yy) -- (\finalX,\yy);
+			}
+		\end{tikzpicture}
+	\end{scaletikzpicturetowidth}
+\end{center}
+endsnippet
+
+snippet rfig "Figura tikz con referencia" b 
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\draw (-2,-2) rectangle (2,2);
+		\end{tikzpicture}
+		\caption{}
+		\label{fig:${1}}
+	\end{figure}
+	${0}
+endsnippet
+
+#images
+snippet img "Imagen sin referencia" b
+\hImage{$0}
+endsnippet
+
+snippet imgm "Imagen en el margen" b 
+\hImageM{$1} \refig{$1} $0
+endsnippet
+
+snippet nimgm "N images en el margen" b
+\marginote{
+	\begin{figure}[H]
+		\centering
+		\subfigure[${4}]{
+			\pgfimage[width=\marginparwidth]{\rootimage/${1}${2}}
+			\label{fig:${1}${2}}
+		}
+		\subfigure[${5}]{
+			\pgfimage[width=\marginparwidth]{\rootimage/${1}${3}}
+			\label{fig:${1}${3}}
+		}
+		\caption{}
+		\label{fig:${1}}
+	\end{figure}
+}
+endsnippet
+
 
 #tabla
 
@@ -728,6 +1004,14 @@ endsnippet
 snippet nn "Tikz node" w
 \node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
 $0
+endsnippet
+
+snippet tikz "Entorno tikz" b
+\begin{center}
+	\begin{tikzpicture}
+		${0}
+	\end{tikzpicture}
+\end{center}
 endsnippet
 
 
@@ -804,6 +1088,7 @@ snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 `
 endsnippet
 
+
 #############
 #  QUIMICA  #
 #############
@@ -811,6 +1096,14 @@ snippet ce "chemin" b
 \ce{`!p snip.rv=match.group(1)`}
 endsnippet
 
+snippet chemin "Nomenclatura inorgánica" b
+snippet chemin "Nomenclatura inorgánica" 
+	\chemin[$1]{
+		\ntra{$2}\\
+		\nsto{$3}\\
+		\niup{$0}
+}
+endsnippet
 
 
 
