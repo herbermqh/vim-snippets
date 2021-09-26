@@ -227,39 +227,39 @@ endsnippet
 #otros entornos
 snippet ej "Ejemplo en una sola columna" b
 \begin{ej}
-		\begin{pre}
-			$1
-		\end{pre}
-		\begin{sol}
-			$0
-		\end{sol}
-	\end{ej}
+	\begin{pre}
+		$1
+	\end{pre}
+	\begin{sol}
+		$0
+	\end{sol}
+\end{ej}
 endsnippet
 
 snippet ej2 "Ejemplo en dos columna" b
-	\begin{ej}
-		\begin{multicols}{2}
-			\begin{pre}
-				${1}
-			\end{pre}
-			\begin{sol}
-				${0}
-			\end{sol}
-		\end{multicols}
-	\end{ej}
+\begin{ej}
+	\begin{multicols}{2}
+		\begin{pre}
+			${1}
+		\end{pre}
+		\begin{sol}
+			${0}
+		\end{sol}
+	\end{multicols}
+\end{ej}
 endsnippet
 
 snippet ell "Ejemplo ilustrativo" b
-	\begin{ExampleIllustrative}
-		$0
-	\end{ExampleIllustrative}
+\begin{ExampleIllustrative}
+	$0
+\end{ExampleIllustrative}
 endsnippet
-
+  
 #indice alfabetico
-
+  
 #modulacion
 snippet pr "Def problema" b
-	\newproblem{${0}}{}{}
+\newproblem{${0}}{}{}
 endsnippet
 
 ##############################
@@ -863,7 +863,7 @@ figura \ref{fig:$1}
 $0
 endsnippet
 
-snippet nrfig "N figuras tikz con referencia" N figuras con referencia
+snippet nrfig "N figuras tikz con referencia" b
 \begin{figure}[H]
 	\centering
 	\subfigure[${2}]{
