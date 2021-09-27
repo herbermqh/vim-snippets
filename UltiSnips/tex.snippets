@@ -57,11 +57,20 @@ endglobal
 
 #DOCUMENT
 # \begin{}...\end{
-snippet beg "begin{} / end{}" bA
-\\begin{$1}
-	$0
-\\end{$1}
+# snippet beg "begin{} / end{}" bA
+# \\begin{$1}
+# 	$0
+# \\end{$1}
+# endsnippet
+
+snippet "be(gin)?( (\S+))?" "begin{} / end{}" br
+\begin{${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "something"`}}
+	${2:${VISUAL}}
+\end{$1}$0
 endsnippet
+
+
 
 ##################
 #  TEXTO NORMAL  #
@@ -627,6 +636,268 @@ snippet tabox "Tabla en caja" b
 endsnippet
 
 #letra griegas
+context "math()"   
+snippet `a "letra griega minuscula" iA
+\alpha  
+endsnippet  
+
+context "math()"   
+snippet `b "letra griega minuscula" iA
+\beta
+endsnippet  
+
+context "math()"   
+snippet `c "letra griega minuscula" iA
+\chi
+endsnippet  
+
+context "math()"   
+snippet `d "letra griega minuscula" iA
+\delta
+endsnippet  
+
+context "math()"   
+snippet `e "letra griega minuscula" iA
+\epsilon
+endsnippet  
+
+context "math()"   
+snippet `f "letra griega minuscula" iA
+\phi
+endsnippet  
+
+context "math()"   
+snippet `g "letra griega minuscula" iA
+\gamma
+endsnippet  
+
+context "math()"   
+snippet `h "letra griega minuscula" iA
+\eta  
+endsnippet  
+
+context "math()"   
+snippet `i "letra griega minuscula" iA
+\iota
+endsnippet  
+
+# context "math()"   
+#snippet `j "letra griega minuscula" iA
+#`j
+#endsnippet  
+
+context "math()"   
+snippet `k "letra griega minuscula" iA
+\kappa 
+endsnippet  
+
+context "math()"   
+snippet `l "letra griega minuscula" iA
+\lambda  
+endsnippet  
+
+context "math()"   
+snippet `m "letra griega minuscula" iA
+\mu
+endsnippet  
+
+context "math()"   
+snippet `n "letra griega minuscula" iA
+\nu
+endsnippet  
+
+#context "math()"   
+#snippet `o "letra griega minuscula" iA
+# 
+#endsnippet  
+
+context "math()"   
+snippet `p "letra griega minuscula" iA
+\pi  
+endsnippet  
+
+context "math()"   
+snippet `q "letra griega minuscula" iA
+\theta
+endsnippet  
+
+context "math()"   
+snippet `r "letra griega minuscula" iA
+\rho
+endsnippet  
+
+context "math()"   
+snippet `s "letra griega minuscula" iA
+\sigma 
+endsnippet  
+
+context "math()"   
+snippet `t "letra griega minuscula" iA
+\tau
+endsnippet  
+
+context "math()"   
+snippet `u "letra griega minuscula" iA
+\upsilon
+endsnippet  
+
+context "math()"   
+snippet `v "letra griega minuscula" iA
+\varsigma 
+endsnippet  
+
+context "math()"   
+snippet `w "letra griega minuscula" iA
+\omega
+endsnippet  
+
+context "math()"   
+snippet `x "letra griega minuscula" iA
+\xi  
+endsnippet  
+
+context "math()"   
+snippet `y "letra griega minuscula" iA
+\psi
+endsnippet  
+
+context "math()"   
+snippet `z "letra griega minuscula" iA
+\zeta
+endsnippet  
+
+    
+context "math()"  
+snippet `A "letra griega mayuscula" iA
+\Alpha
+endsnippet  
+
+context "math()"  
+snippet `B "letra griega mayuscula" iA
+\Beta
+endsnippet  
+
+context "math()"  
+snippet `C "letra griega mayuscula" iA
+\Chi
+endsnippet  
+
+context "math()"  
+snippet `D "letra griega mayuscula" iA
+\Delta
+endsnippet  
+
+context "math()"  
+snippet `E "letra griega mayuscula" iA
+\Varepsilon
+endsnippet  
+
+context "math()"  
+snippet `F "letra griega mayuscula" iA
+\Varphi
+endsnippet  
+
+context "math()"  
+snippet `G "letra griega mayuscula" iA
+\Gamma
+endsnippet  
+
+context "math()"  
+snippet `H "letra griega mayuscula" iA
+\Eta
+endsnippet  
+
+context "math()"  
+snippet `I "letra griega mayuscula" iA
+\Iota
+endsnippet  
+
+#context "math()"  
+#snippet `J "letra griega mayuscula" iA
+#`J
+#endsnippet  
+   
+context "math()"  
+snippet `K "letra griega mayuscula" iA
+\Kappa 
+endsnippet
+
+context "math()"  
+snippet `L "letra griega mayuscula" iA
+\Lambda
+endsnippet  
+
+context "math()"  
+snippet `M "letra griega mayuscula" iA
+\Mu
+endsnippet  
+
+context "math()"  
+snippet `N "letra griega mayuscula" iA
+\Nu
+endsnippet  
+
+context "math()"  
+snippet `O "letra griega mayuscula" iA
+\Omicron
+endsnippet  
+
+context "math()"  
+snippet `P "letra griega mayuscula" iA
+\Pi
+endsnippet  
+
+context "math()"  
+snippet `Q "letra griega mayuscula" iA
+\Theta
+endsnippet  
+
+context "math()"  
+snippet `R "letra griega mayuscula" iA
+\Rho
+endsnippet  
+
+context "math()"  
+snippet `S "letra griega mayuscula" iA
+\Sigma
+endsnippet  
+
+context "math()"  
+snippet `T "letra griega mayuscula" iA
+\Tau
+endsnippet  
+
+context "math()"  
+snippet `U "letra griega mayuscula" iA
+\Upsilon
+endsnippet  
+
+context "math()"  
+snippet `V "letra griega mayuscula" iA
+\Varsigma
+endsnippet  
+
+context "math()"  
+snippet `W "letra griega mayuscula" iA
+\Omega
+endsnippet  
+
+context "math()"  
+snippet `X "letra griega mayuscula" iA
+\Xi
+endsnippet  
+
+context "math()"  
+snippet `Y "letra griega mayuscula" iA
+\Psi
+endsnippet  
+
+context "math()"  
+snippet `Z "letra griega mayuscula" iA
+\Zeta
+endsnippet  
+
+
 
 #operadores binarios
 context "math()"
@@ -742,15 +1013,29 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log)' "ln" rwA
+\\`!p snip.rv = match.group(1)`\left($1\right) $0
+endsnippet
+
+priority 100
+context "math()"
+snippet '(?<!\\)(exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
-\\`!p snip.rv = match.group(1)`
+snippet '(?<!\\)(asin|acos|atan|acot|acsc|asec) (arcsin|arccos|arctan|arccot|arccsc|arcsec)' "ln" rwA
+\\`!p snip.rv = match.group(2)`\left($1\right) $0
 endsnippet
+
+snippet 'heber' "heber snip" rwA
+\heber
+endsnippet
+
+
+
 
 #especiales
 
