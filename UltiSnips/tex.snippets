@@ -1047,7 +1047,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log)' "ln" rwA
+snippet '(?<!\\|a)(sin|cos|tan|sec|csc|cot|ln|log)' "ln" rwA
 \\`!p snip.rv = match.group(1)`\left($1\right) $0
 endsnippet
 
@@ -1058,16 +1058,14 @@ snippet '(?<!\\)(exp|star|perp)' "ln" rwA
 endsnippet
 
 
-priority 200
+priority 100
 context "math()"
-snippet '(?<!\\)(asin|acos|atan|acot|acsc|asec)(arcsin|arccos|arctan|arccot|arccsc|arcsec)' "ln" rwA
-\\`!p snip.rv = match.group(2)`\left($1\right) $0
+snippet '(?<!\\)(asin|acos|atan|asec|acss|acot)' "ln" rwA
+\\`!p 
+function_trig=match.group(1)[1:]
+snip.rv="arc"+function_trig
+`\left($1\right) $0
 endsnippet
-
-snippet 'heber' "heber snip" rwA
-\heber
-endsnippet
-
 
 
 
