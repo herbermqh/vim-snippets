@@ -57,7 +57,8 @@ endglobal
 
 #DOCUMENT
 snippet documentclass "documentclass" b
-\documentclass`!p snip.rv='El resultado es:' "asdfasd"`
+\documentclass`!p snip.rv="[" if t[1] else ""`${1:options}`!p snip.rv = "]" if t[1] else ""`{${2:package}}
+$0
 endsnippet
 
 snippet usepackage "usepackage" b
@@ -99,6 +100,12 @@ endsnippet
 #tamanos letras
 
 #centrado
+snippet center "center" b
+\begin{center}
+  $1
+\end{center}
+$0
+endsnippet
 
 #espacio horizontal y vertical
 
@@ -211,6 +218,9 @@ snippet qt "Preguntas" b
 endsnippet
 
 #titulo
+snippet maketitle "maketitle" b
+\maketitle
+endsnippet
 
 #tabla contenido
 
@@ -307,8 +317,14 @@ endsnippet
   
 #modulacion
 snippet pr "Def problema" b
-\newproblem{${0}}{}{}
+\newproblem{$1}{$2}{$3}$0
 endsnippet
+
+#otros comandos no matematicos
+
+
+
+
 
 ##############################
 #  TEXTO EN MODO MATEMATICO  #
@@ -1116,11 +1132,13 @@ endsnippet
 ########################
 #  PROGRAMACION LATEX  #
 #######################
-snippet usepackage "usepackage" b
-\usepackage`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{${2:package}}$0
-endsnippet
 
 #nuevo comando 
+snippet newcommand "newcommand" b
+\newcommand`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{\\${2:name}}{${3:definition}}$0
+endsnippet
+
+
 
 #definicion
 
