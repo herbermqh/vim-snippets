@@ -22,78 +22,16 @@
 ## Matrix
 ## Cases
 ## Split
-#snippet spl split environment
-#	\\begin{split}
-#		${0:${VISUAL}}
-#	\\end{split}
 ## Part
-#snippet part document \part
-#	\\part{${1:part name}} % (fold)%
-#	\\label{prt:${2:$1}}
-#	${0}
-#	% part $2 (end)
 ## Chapter
-#snippet cha \chapter
-#	\\chapter{${1:chapter name}}%
-#	\\label{cha:${2:$1}}
-#	${0}
 ## Paragraph
-#snippet par \paragraph
-#	\\paragraph{${1:paragraph name}}%
-#	\\label{par:${2:$1}}
-#	${0}
 ## Sub Paragraph
-#snippet subp \subparagraph
-#	\\subparagraph{${1:subparagraph name}}%
-#	\\label{subp:${2:$1}}
-#	${0}
 #snippet ni \noindent
-#	\\noindent
-#	${0}
 ##References
-#snippet itd description \item
-#	\\item[${1:description}] ${0:item}
-#snippet figref reference to a figure
-#	\\ref{fig:${1}} ${0}
-#snippet tabref reference to a table
-#	\\ref{tab:${1}} ${0}
-#snippet listingref reference to a listing
-#	${1:Listing}~\\ref{${2:list}}
-#snippet sectionref reference to a section
-#	\\ref{sec:${1}} ${0}
-#snippet pageref reference to a page
-#	\\pageref{${1}} ${0}
-#snippet index \index
-#	\\index{${1:index}} ${0}
 ##Citations
-#snippet citen \citen
-#	\\citen{${1}} ${0}
-## natbib citations
-#snippet citep \citep
-#	\\citep{${1}} ${0}
-#snippet citet \citet
-#	\\citet{${1}} ${0}
-#snippet cite \cite[]{}
-#	\\cite[${1}]{${2}} ${0}
-#snippet citea \citeauthor
-#	\\citeauthor{${1}} ${0}
-#snippet citey \citeyear
-#	\\citeyear{${1}} ${0}
-#snippet fcite \footcite[]{}
-#	\\footcite[${1}]{${2}}${0}
+
 ##Formating text: italic, bold, underline, small capital, emphase ..
-#snippet ita italic text
-#	\\textit{${1:${VISUAL:text}}}${0}
-#snippet bf bold face text
-#	\\textbf{${1:${VISUAL:text}}}${0}
-#snippet under underline text
-#	\\underline{${1:${VISUAL:text}}}${0}
-#snippet over overline text
-#	\\overline{${1:${VISUAL:text}}}${0}
-#snippet emp emphasize text
-#	\\emph{${1:${VISUAL:text}}}${0}
-#snippet sc small caps text
-#	\\textsc{${1:${VISUAL:text}}}${0}
+
 ##Choosing font
 #snippet sf sans serife text
 #	\\textsf{${1:${VISUAL:text}}}${0}
@@ -113,8 +51,6 @@
 #snippet ms mathscr
 #	\\mathscr{${1:${VISUAL:text}}}${0}
 ##misc
-#snippet ft \footnote
-#	\\footnote{${1:${VISUAL:text}}}${0}
 #snippet tikzcd tikzcd environment in equation
 #	\\begin{equation}
 #		\\begin{tikzcd}
@@ -161,7 +97,6 @@
 #	\\end{columns}
 
 
-
 #snippet \{ \{ \}
 #	\\{ ${0} \\}
 ##delimiter
@@ -179,14 +114,17 @@
 #	\\left[ ${0:${VISUAL}} \\right]
 #snippet lra langle rangle
 #	\\langle ${0:${VISUAL}} \\rangle
+
 ## Code listings
 #snippet lst
 #	\\begin{listing}[language=${1:language}]
 #		${0:${VISUAL}}
 #	\\end{listing}
+
 #snippet lsi
 #	\\lstinline|${1}| ${0}
 ## Hyperlinks
+
 #snippet url
 #	\\url{${1}} ${0}
 #snippet href
@@ -254,100 +192,42 @@
 
 ####################################Herbert
 ## Valor absoluto
-#snippet abs "Valor absoluto" \left| right|
-#	\\left| ${0} \\right|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #logica y conjuntos
-snippet oo "O logica" O logica
-	\lor
-snippet yy "Y logica" Y logica
-	\wedge 
-snippet ee "Entonces logica" Entonces logica
-	\Rightarrow
-snippet sss "Si y solo si logica" Si y solo si logica
-	\Leftrightarrow
-snippet nn "Negacion logica" Negacion logica
-	\sim 
-snippet od "Logica" Logica
-	\veebar
-snippet UU "Union conjuntos" Union conjuntos
-	\cup
-snippet II "Intereseccion conjuntos" Interseccion conjuntos
-	\cap
+
+# snippet yy "Y logica" Y logica
+# 	\wedge 
+# snippet ee "Entonces logica" Entonces logica
+# 	\Rightarrow
+# snippet sss "Si y solo si logica" Si y solo si logica
+# 	\Leftrightarrow
+# snippet nn "Negacion logica" Negacion logica
+# 	\sim 
+# snippet od "Logica" Logica
+# 	\veebar
+# snippet UU "Union conjuntos" Union conjuntos
+# 	\cup
+# snippet II "Intereseccion conjuntos" Interseccion conjuntos
+# 	\cap
 
 
 #sumatoria
-snippet suml "Sumatoria con limites" Sumatoria con limites
-	\sum\limits_{${1:i}=${2:1}}^{${3:n}}${0}
-snippet sum "Sumatoria sin limites" Sumatoria sin limites
-	\sum ${0}
 #productoria
-snippet prodl "Productoria con limites" Productoria con limites
-	\prod\limits_{${1:i}=${2:1}}^{${3:n}}${0}
-snippet prod "Productoria sin limites" Productoria sin limites
-	\prod ${0}
 #calculo de una variable
-snippet lim "limites" limites
-	 \lim\limits_{${1:x}\to ${2:0}}${0}
-snippet dey1 "Derivada de u" Derivada de u
-	\frac{d${1:y}}{d${2:x}}${0}
-snippet def1 "Derivada de funcion" Derivada de funcion
-	\frac{d}{d${1:x}}\left[ ${2} \right]${0}
-snippet deny "Derivada n-esima de u" Derivada n-esima de u
-	\frac{d^{${3:n}}${1:y}}{d${2:x}^{${3:n}}}${0}
-snippet denf "Derivada n-esima de una funcion" Derivada n-esima de una funcion
-	\frac{d^{${2:n}}}{d${1:x}^{${2:n}}}\left[${3}\right]${0}
-snippet ini "Integral indefinida" Integral indefinida
-	\int ${2:f(${1:x})}\;d${1:x} ${0}
-snippet ind "Integral definida" Integral definida
-	\int\limits_{${1:num}}^{${2:num}}${4:f(${3:x})}\;d${3:x} ${0}
+# snippet lim "limites" limites
+# snippet dey1 "Derivada de u" Derivada de u
+# 	\frac{d${1:y}}{d${2:x}}${0}
+# snippet def1 "Derivada de funcion" Derivada de funcion
+# 	\frac{d}{d${1:x}}\left[ ${2} \right]${0}
+# snippet deny "Derivada n-esima de u" Derivada n-esima de u
+# 	\frac{d^{${3:n}}${1:y}}{d${2:x}^{${3:n}}}${0}
+# snippet denf "Derivada n-esima de una funcion" Derivada n-esima de una funcion
+# 	\frac{d^{${2:n}}}{d${1:x}^{${2:n}}}\left[${3}\right]${0}
+# snippet ini "Integral indefinida" Integral indefinida
+# 	\int ${2:f(${1:x})}\;d${1:x} ${0}
+# snippet ind "Integral definida" Integral definida
+# 	\int\limits_{${1:num}}^{${2:num}}${4:f(${3:x})}\;d${3:x} ${0}
 
-#vectores
-snippet vv "Vector" Vector
-	\vec{${1}}${0}
-snippet vu "Vector unitario" Vector unitario
-	\hat{${1}}${0}
-
-#varios
-snippet mb "mbox" \mbox
-	\mbox{${1}}${0}
-
-snippet ec "Ecuacion" Ecuacion
-	\tag{${1}${0}}
-	
-snippet uu "Unidades" Unidades
-	\unit{${1}}${0}
 
 
 

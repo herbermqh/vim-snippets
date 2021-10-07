@@ -87,17 +87,32 @@ endsnippet
 
 #verb
 
-#fuentes
-snippet bf "Bold"
-\textbf{$1} $0
+#formating text
+snippet text "text" b
+\\text{${1:${VISUAL:text}}} ${0}
 endsnippet
 
-snippet ita "Italics"
-\textit{$1} $0
+snippet textit "italic text" b
+\\textit{${1:${VISUAL:text}}} ${0}
 endsnippet
+
+snippet textbf "bold face text" b
+\\textbf{${1:${VISUAL:text}}} ${0}
+endsnippet
+
+snippet underline "underline text" b
+\\underline{${1:${VISUAL:text}}} ${0}
+endsnippet
+
+snippet overline "overline text" b
+\\overline{${1:${VISUAL:text}}} ${0}
+endsnippet
+
 
 
 #tamanos letras
+
+
 
 #centrado
 snippet center "center" b
@@ -139,9 +154,15 @@ endsnippet
 
 #lineas 
 
-#nota en pie de pagina
 
-#texto com en la pantalla
+#nota en pie de pagina
+snippet ft "\footnote" b
+\\footnote{${1:${VISUAL:text}}} ${0}
+endsnippet
+
+#texto como en la pantalla
+
+
 
 #xcolor
 
@@ -152,26 +173,26 @@ endsnippet
 #enumerate
 snippet enum "Enumerate" b
 \begin{enumerate}
-	\item $0
+  \item $0
 \end{enumerate}
 endsnippet
 
 snippet enuma "Enumerate" b
 \begin{enumerate}[a)]
-	\item $0
+  \item $0
 \end{enumerate}
 endsnippet
 
 snippet enumi "Enumerate" b
 \begin{enumerate}[i)]
-	\item $0
+  \item $0
 \end{enumerate}
 endsnippet
 
 # Itemize
 snippet item "Itemize" b
 \begin{itemize}
-	\item $0
+  \item $0
 \end{itemize}
 endsnippet
 
@@ -200,21 +221,21 @@ endsnippet
 #description
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+  \item[$1] $0
 \end{description}
 endsnippet
 
 #otra entornos de enumeracion o listas
 snippet nit "Lista con nombre" b
 \begin{NameItem}[${1:nombre}]
-	\item ${0}
+  \item ${0}
 \end{NameItem}
 endsnippet
 
 snippet qt "Preguntas" b
-	\begin{question}
-		\item ${0}
-	\end{question}
+\begin{question}
+  \item ${0}
+\end{question}
 endsnippet
 
 #titulo
@@ -257,10 +278,63 @@ $0
 %End subsubsection $1
 endsnippet
 
+#referencia
+snippet figref "reference to a figure" b
+\\ref{fig:${1}} ${0}
+endsnippet
+
+snippet tabref "reference to a table" b
+\\ref{tab:${1}} ${0}
+endsnippet
+
+snippet listingref "reference to a listing" b
+${1:Listing}~\\ref{${2:list}}
+endsnippet
+
+snippet sectionref "reference to a section" b
+\\ref{sec:${1}} ${0}
+endsnippet
+
+snippet pageref "reference to a page" b
+\\pageref{${1}} ${0}
+endsnippet
+
+snippet index "index" b
+\\index{${1:index}} ${0}
+endsnippet
 
 #bibliografia
 
 #referencia bibliografica
+
+#citas
+snippet citen "\citen" b
+\\citen{${1}} ${0}
+endsnippet
+
+snippet citep "\citep" b
+\\citep{${1}} ${0}
+endsnippet
+
+snippet citet "\citet" b
+\\citet{${1}} ${0}
+endsnippet
+
+snippet cite "\cite[]{}" b
+\\cite[${1}]{${2}} ${0}
+endsnippet
+
+snippet citea "\citeauthor" b
+\\citeauthor{${1}} ${0}
+endsnippet
+
+snippet citey "\citeyear" b
+\\citeyear{${1}} ${0}
+endsnippet
+
+snippet footcite "\footcite[]{}"
+\\footcite[${1}]{${2}}${0}
+endsnippet
 
 #definiciones
 snippet def "Definición" b
@@ -321,7 +395,15 @@ snippet pr "Def problema" b
 endsnippet
 
 #otros comandos no matematicos
+context "math()"
+snippet mb "mbox" iA
+\mbox{${1}}${0}
+endsnippet
 
+context "math()"
+snippet eq "Ecuacion" iA
+\tag{${1}${0}}
+endsnippet
 
 
 
@@ -486,33 +568,25 @@ snippet sq "\sqrt{}" iA
 endsnippet
 
 #sumatoria
-snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+context "math()"
+snippet sum "sum" iA
+\sum\limits_{${1:i}=${2:1}}^{${3:n}}${0}
 endsnippet
 
-snippet taylor "taylor" w
-\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
-endsnippet
 
 #productoria
-snippet prod "product" w
-\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+context "math()"
+snippet prod "product" iA
+\prod\limits_{${1:i}=${2:1}}^{${3:n}}${0}
 endsnippet
 
-#lipsum
-snippet limsup "limsup" w
-\limsup_{${1:n} \to ${2:\infty}} 
-endsnippet
 
 #limites
-snippet lim "limit" w
-\lim_{${1:n} \to ${2:\infty}} 
+snippet lim "limit" iA
+\lim\limits_{${1:x}\to ${2:0}}${0}
 endsnippet
 
 #derivadas
-snippet part "d/dx" w
-\frac{\partial ${1:V}}{\partial ${2:x}} $0
-endsnippet
 
 #puntos consecutivos
 priority 100
@@ -522,41 +596,28 @@ endsnippet
 
 #delimitadores
 context "math()"
-snippet () "left( right)" iA
+snippet (( "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
-snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr( "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr| "left| right|" i
+context "math()"
+snippet || "left| right|" iA
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
 
-snippet lr{ "left\{ right\}" i
+context "math()"
+snippet {{ "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
-snippet lrb "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
-endsnippet
-
-snippet lr[ "left[ right]" i
+context "math()"
+snippet [[ "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
-endsnippet
-
-snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
 endsnippet
 
 context "math()"
 snippet norm "norm" iA
-\|$1\|$0
+\left\| $1\right \|$0
 endsnippet
 
 #delimitadores amstmath
@@ -601,14 +662,13 @@ endsnippet
 
 priority 100
 context "math()"
-snippet "([a-zA-Z])hat" "hat" riA
+snippet "([a-zA-Z])u" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-
 #vectores a,.
 context "math()"
-snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
+snippet "(\\?\w+)v" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet 
 
@@ -681,6 +741,9 @@ snippet stm "Sistema de ecuaciones" b
 endsnippet
 
 #multline
+
+
+
 
 #otros entornos matematicos
 snippet form "Fórmula" b
@@ -1001,6 +1064,11 @@ endsnippet
 
 #operadores binarios
 context "math()"
+snippet or "O" iA
+\lor
+endsnippet
+
+context "math()"
 snippet xx "cross" iA
 \times 
 endsnippet
@@ -1143,6 +1211,11 @@ endsnippet
 ########################
 #  PROGRAMACION LATEX  #
 #######################
+#comandos heber
+context "math()"
+snippet hu "Unidades" iA
+\unit{$1}${0}
+endsnippet
 
 #nuevo comando 
 snippet newcommand "newcommand" b
