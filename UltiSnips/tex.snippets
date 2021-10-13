@@ -1169,11 +1169,13 @@ endsnippet
 
 
 #operadores relacionales
+priority 100
 context "math()"
 snippet CC "subset" Ai
 \subset 
 endsnippet
 
+context "math()"
 snippet == "equals" iA
 &= $1 \\\\
 endsnippet
@@ -1200,14 +1202,18 @@ snippet !> "mapsto" iA
 \mapsto 
 endsnippet
 
+priority 100
+context "math()"
 snippet "~|nn" "~" riA
 \sim 
 endsnippet
 
+context "math()"
 snippet "=>|ee" "implies" rAi
 \Rightarrow 
 endsnippet
 
+context "math()"
 snippet =< "implied by" Ai
 \Leftarrow 
 endsnippet
@@ -1232,13 +1238,10 @@ command_name_negation=match.group(1)[1:]
 snip.rv = command_name_negation` $0 
 endsnippet
 
+priority 200
 context "math()"
 snippet nCC "subset" Ai
 \not\subset 
-endsnippet
-
-snippet n~ "~" iA
-\not\sim 
 endsnippet
 
 snippet n= "not equal" iA
@@ -1273,8 +1276,9 @@ snippet EE "exists" iA
 \exists 
 endsnippet
 
+priority 200
 context "math()"
-snippet nEE "exists" iA
+snippet nEE "not exists" iA
 \not\exists 
 endsnippet
 
@@ -1300,18 +1304,22 @@ snip.rv="arc"+function_trig
 endsnippet
 
 
-
 #especiales
 
 
 #simbolos del paquete amssymb
+snippet "\|(R|Q|Z|I)" "mathbb R Q Z I" riA
+\\mathbb{`!p snip.rv=match.group(1)`}
+endsnippet
+
+
 
 ########################
 #  PROGRAMACION LATEX  #
 #######################
 #comandos heber
 context "math()"
-snippet hu "Unidades" iA
+snippet uu "Unidades" iA
 \unit{$1}${0}
 endsnippet
 
