@@ -609,10 +609,22 @@ endsnippet
 #derivadas
 
 #puntos consecutivos
-priority 200
+priority 100
 context "math()"
-snippet . "cdot" iA
+snippet · "cdot" iA
 \cdot 
+endsnippet
+
+priority 100
+context "math()"
+snippet ... "ldots" iA
+\ldots 
+endsnippet
+
+priority 100
+context "math()"
+snippet ··· "cdot" iA
+\cdots 
 endsnippet
 
 #delimitadores
@@ -651,6 +663,11 @@ endsnippet
 context "math()"
 snippet norm "norm" iA
 \left\| $1\right \|$0
+endsnippet
+
+context "math()"
+snippet .| "left. right|" iA
+\left. ${1:${VISUAL}} \right| $0
 endsnippet
 
 #delimitadores amstmath
@@ -808,64 +825,64 @@ endsnippet
 
 snippet tabox "Tabla en caja" b
 \begin{empheq}[box=\tabox{${1:título}}]{align*}
-	${0}
+  ${0}
 \end{empheq}
 endsnippet
 
 #letra griegas
 context "math()"   
 snippet `a "letra griega minuscula" iA
-\alpha 
+\alpha $0 
 endsnippet
 
 context "math()"   
 snippet à "letra griega minuscula" iA
-\alpha
+\alpha $0
 endsnippet
 
 context "math()"   
 snippet `b "letra griega minuscula" iA
-\beta
+\beta $0
 endsnippet  
 
 context "math()"   
 snippet `c "letra griega minuscula" iA
-\chi
+\chi $0
 endsnippet  
 
 context "math()"   
 snippet `d "letra griega minuscula" iA
-\delta
+\delta $0
 endsnippet  
 
 context "math()"   
 snippet `e "letra griega minuscula" iA
-\epsilon
+\epsilon $0
 endsnippet  
 
 context "math()"   
 snippet è "letra griega minuscula" iA
-\epsilon
+\epsilon $0
 endsnippet
 
 context "math()"   
 snippet `f "letra griega minuscula" iA
-\phi
+\phi $0
 endsnippet  
 
 context "math()"   
 snippet `g "letra griega minuscula" iA
-\gamma
+\gamma $0
 endsnippet  
 
 context "math()"   
 snippet `h "letra griega minuscula" iA
-\eta  
+\eta $0  
 endsnippet  
 
 context "math()"   
 snippet `i "letra griega minuscula" iA
-\iota
+\iota $0
 endsnippet  
 
 # context "math()"   
@@ -875,22 +892,22 @@ endsnippet
 
 context "math()"   
 snippet `k "letra griega minuscula" iA
-\kappa 
+\kappa $0 
 endsnippet  
 
 context "math()"   
 snippet `l "letra griega minuscula" iA
-\lambda  
+\lambda $0  
 endsnippet  
 
 context "math()"   
 snippet `m "letra griega minuscula" iA
-\mu
+\mu $0
 endsnippet  
 
 context "math()"   
 snippet `n "letra griega minuscula" iA
-\nu
+\nu $0
 endsnippet  
 
 #context "math()"   
@@ -900,122 +917,122 @@ endsnippet
 
 context "math()"   
 snippet `p "letra griega minuscula" iA
-\pi  
+\pi $0  
 endsnippet  
 
 context "math()"   
 snippet `q "letra griega minuscula" iA
-\theta
+\theta $0
 endsnippet  
 
 context "math()"   
 snippet `r "letra griega minuscula" iA
-\rho
+\rho $0
 endsnippet  
 
 context "math()"   
 snippet `s "letra griega minuscula" iA
-\sigma 
+\sigma $0
 endsnippet  
 
 context "math()"   
 snippet `t "letra griega minuscula" iA
-\tau
+\tau $0
 endsnippet  
 
 context "math()"   
 snippet `u "letra griega minuscula" iA
-\upsilon
+\upsilon $0
 endsnippet  
 
 context "math()"   
 snippet ù "letra griega minuscula" iA
-\upsilon
+\upsilon $0
 endsnippet
 
 context "math()"   
 snippet `v "letra griega minuscula" iA
-\varsigma 
+\varsigma $0 
 endsnippet  
 
 context "math()"   
 snippet `w "letra griega minuscula" iA
-\omega
+\omega $0
 endsnippet  
 
 context "math()"   
 snippet `x "letra griega minuscula" iA
-\xi  
+\xi $0  
 endsnippet  
 
 context "math()"   
 snippet `y "letra griega minuscula" iA
-\psi
+\psi $0
 endsnippet  
 
 context "math()"   
 snippet `z "letra griega minuscula" iA
-\zeta
+\zeta $0
 endsnippet  
 
 context "math()"  
 snippet `A "letra griega mayuscula" iA
-\Alpha
+\Alpha $0
 endsnippet  
 
 context "math()"  
 snippet À "letra griega mayuscula" iA
-\Alpha
+\Alpha $0
 endsnippet  
 
 context "math()"  
 snippet `B "letra griega mayuscula" iA
-\Beta
+\Beta $0
 endsnippet  
 
 context "math()"  
 snippet `C "letra griega mayuscula" iA
-\Chi
+\Chi $0
 endsnippet  
 
 context "math()"  
 snippet `D "letra griega mayuscula" iA
-\Delta
+\Delta $0
 endsnippet  
 
 context "math()"  
 snippet `E "letra griega mayuscula" iA
-\Varepsilon
+\Varepsilon $0
 endsnippet  
 
 context "math()"  
 snippet È "letra griega mayuscula" iA
-\Varepsilon
+\Varepsilon $0
 endsnippet  
 
 context "math()"  
 snippet `F "letra griega mayuscula" iA
-\Varphi
+\Varphi $0
 endsnippet  
 
 context "math()"  
 snippet `G "letra griega mayuscula" iA
-\Gamma
+\Gamma $0
 endsnippet  
 
 context "math()"  
 snippet `H "letra griega mayuscula" iA
-\Eta
+\Eta $0
 endsnippet  
 
 context "math()"  
 snippet `I "letra griega mayuscula" iA
-\Iota
+\Iota $0
 endsnippet  
 
 context "math()"  
 snippet Ì "letra griega mayuscula" iA
-\Iota
+\Iota $0
 endsnippet  
 
 #context "math()"  
@@ -1025,87 +1042,87 @@ endsnippet
    
 context "math()"  
 snippet `K "letra griega mayuscula" iA
-\Kappa 
+\Kappa $0 
 endsnippet
 
 context "math()"  
 snippet `L "letra griega mayuscula" iA
-\Lambda
+\Lambda $0
 endsnippet  
 
 context "math()"  
 snippet `M "letra griega mayuscula" iA
-\Mu
+\Mu $0
 endsnippet  
 
 context "math()"  
 snippet `N "letra griega mayuscula" iA
-\Nu
+\Nu $0
 endsnippet  
 
 context "math()"  
 snippet `O "letra griega mayuscula" iA
-\Omicron
+\Omicron $0
 endsnippet  
 
 context "math()"  
 snippet `P "letra griega mayuscula" iA
-\Pi
+\Pi $0
 endsnippet  
 
 context "math()"  
 snippet `Q "letra griega mayuscula" iA
-\Theta
+\Theta $0
 endsnippet  
 
 context "math()"  
 snippet `R "letra griega mayuscula" iA
-\Rho
+\Rho $0
 endsnippet  
 
 context "math()"  
 snippet `S "letra griega mayuscula" iA
-\Sigma
+\Sigma $0
 endsnippet  
 
 context "math()"  
 snippet `T "letra griega mayuscula" iA
-\Tau
+\Tau $0
 endsnippet  
 
 context "math()"  
 snippet `U "letra griega mayuscula" iA
-\Upsilon
+\Upsilon $0
 endsnippet  
 
 context "math()"  
 snippet Ù "letra griega mayuscula" iA
-\Upsilon
+\Upsilon $0
 endsnippet
 
 context "math()"  
 snippet `V "letra griega mayuscula" iA
-\Varsigma
+\Varsigma $0
 endsnippet  
 
 context "math()"  
 snippet `W "letra griega mayuscula" iA
-\Omega
+\Omega $0
 endsnippet  
 
 context "math()"  
 snippet `X "letra griega mayuscula" iA
-\Xi
+\Xi $0
 endsnippet  
 
 context "math()"  
 snippet `Y "letra griega mayuscula" iA
-\Psi
+\Psi $0
 endsnippet  
 
 context "math()"  
 snippet `Z "letra griega mayuscula" iA
-\Zeta
+\Zeta $0
 endsnippet  
 
 
@@ -1123,7 +1140,7 @@ endsnippet
 
 context "math()"
 snippet xx "cross" iA
-\times 
+\times $0 
 endsnippet
 
 context "math()"
@@ -1143,27 +1160,27 @@ endsnippet
 
 context "math()"
 snippet oo "or" iA
-\lor
+\lor $0
 endsnippet
 
 context "math()"
 snippet yy "or" iA
-\wedge
+\wedge $0
 endsnippet
 
 context "math()"
 snippet O+ "oplus" iA
-\oplus 
+\oplus $0 
 endsnippet
 
 context "math()"
 snippet O- "ominus" iA
-\ominus 
+\ominus $0 
 endsnippet
 
 context "math()"
 snippet Ox "otimes" iA
-\otimes 
+\otimes $0 
 endsnippet
 
 
@@ -1172,12 +1189,12 @@ endsnippet
 priority 100
 context "math()"
 snippet CC "subset" Ai
-\subset 
+\subset $0 
 endsnippet
 
 context "math()"
 snippet == "equals" iA
-&= $1 \\\\
+&= $0 \\\\
 endsnippet
 
 context "math()"
@@ -1188,45 +1205,45 @@ endsnippet
 priority 100
 context "math()"
 snippet "->|to" "to" riA
-\to 
+\to $0 
 endsnippet
 
 priority 200
 context "math()"
 snippet <-> "leftrightarrow" iA
-\leftrightarrow
+\leftrightarrow $0
 endsnippet
 
 context "math()"
 snippet !> "mapsto" iA
-\mapsto 
+\mapsto $0 
 endsnippet
 
 priority 100
 context "math()"
 snippet "~|nn" "~" riA
-\sim 
+\sim $0 
 endsnippet
 
 context "math()"
 snippet "=>|ee" "implies" rAi
-\Rightarrow 
+\Rightarrow $0 
 endsnippet
 
 context "math()"
 snippet =< "implied by" Ai
-\Leftarrow 
+\Leftarrow $0 
 endsnippet
 
 context "math()"
 snippet "<=>|sss" "leftrightarrow" riA
-\Leftrightarrow 
+\Leftrightarrow $0 
 endsnippet
 
 priority 100
 context "math()"
 snippet '(?<!\\|n)(leq|geq|in|parallel|equiv|approx|cong|propto|perp)' "symb relations math" rwA
-\\`!p snip.rv = match.group(1)` 
+\\`!p snip.rv = match.group(1)` $0 
 endsnippet
 
 #negacion de relaciones
@@ -1241,57 +1258,61 @@ endsnippet
 priority 200
 context "math()"
 snippet nCC "subset" Ai
-\not\subset 
+\not\subset $0 
 endsnippet
 
+context "math()"
 snippet n= "not equal" iA
-\neq 
+\neq $0 
 endsnippet
 
 #otros simbolos
+context "math()"
 snippet ell "l" iA
-\ell
+\ell $0 
 endsnippet
 
+context "math()"
 snippet `6 "partial" iA
-\partial 
+\partial $0  
 endsnippet
 
+context "math()"
 snippet `8 "\infty" iA
-\infty
+\infty $0 
 endsnippet
 
 context "math()"
 snippet ø "emptyset" iA
-\emptyset 
+\emptyset $0 
 endsnippet
 
 context "math()"
 snippet nab "nabla" iA
-\nabla 
+\nabla $0 
 endsnippet
 
 context "math()"
 snippet EE "exists" iA
-\exists 
+\exists $0 
 endsnippet
 
 priority 200
 context "math()"
 snippet nEE "not exists" iA
-\not\exists 
+\not\exists $0 
 endsnippet
 
 context "math()"
 snippet AA "forall" iA
-\forall 
+\forall $0 
 endsnippet
 
 #funciones matematicos 
-priority 100
+priority 200
 context "math()"
 snippet '(?<!\\|a)(sin|cos|tan|sec|csc|cot|ln|log)' "functions math" rwA
-\\`!p snip.rv = match.group(1)`\left($1\right) $0
+\\`!p snip.rv = match.group(1)`\left( $1 \right) $0
 endsnippet
 
 priority 100
@@ -1300,7 +1321,7 @@ snippet '(?<!\\)(asin|acos|atan|asec|acss|acot)' "function trig inverse" rwA
 \\`!p 
 function_trig=match.group(1)[1:]
 snip.rv="arc"+function_trig
-`\left($1\right) $0
+`\left( $1 \right) $0
 endsnippet
 
 
